@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% load socialaccount %}
 {% block content %}
-<form method="POST">
+<form method="POST" action="{% provider_login_url 'google' %}">
     {% csrf_token %}
     {{ form.as_p}}
     <input type="hidden" name="next" value="{{ request.GET.next }}">
     <input type="submit" value="ログイン">
+    <input type="submit" class="btn btn-primary" value="Googleログイン">
 </form>
 {% endblock %}

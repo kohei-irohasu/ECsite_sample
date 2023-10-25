@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
     ProductListView, ProductDetailView, 
     add_product, CartItmesView, CartUpdateView, 
-    CartDeleteView
+    CartDeleteView, InputAddressView, ConfirmOrderView, 
+    OrderSuccessView,
 )
 app_name = 'stores'
 urlpatterns = [
@@ -12,4 +13,8 @@ urlpatterns = [
     path('cart_items/',CartItmesView.as_view(), name='cart_items'),
     path('update_cart/<int:pk>',CartUpdateView.as_view(), name='update_cart'),
     path('delete_cart/<int:pk>',CartDeleteView.as_view(), name='delete_cart'),
+    path('inpurt_address/',InputAddressView.as_view(), name='input_address'),
+    path('inpurt_address/<int:pk>',InputAddressView.as_view(), name='input_address'),
+    path('confirm_order/',ConfirmOrderView.as_view(), name='confirm_order'),
+    path('order_success/',OrderSuccessView.as_view(), name='order_success'),
 ]
